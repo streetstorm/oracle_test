@@ -239,7 +239,7 @@
             "rgba(237, 129, 40, 0.89)",
             "rgba(245, 54, 54, 0.9)"
           ],
-          "datasource": "${PROMETHEUS}",
+          "datasource": "Prometheus",
           "decimals": null,
           "editable": true,
           "error": false,
