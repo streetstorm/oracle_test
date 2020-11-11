@@ -3,19 +3,18 @@ FROM oraclelinux:7-slim as base
 ENV ORACLE_BASE=/opt/oracle \
     ORACLE_HOME=/opt/oracle/product/12.2.0.1/dbhome_1 \
     INSTALL_DIR=/opt/install \
-    INSTALL_FILE_1="files/linuxx64_12201_database.zip" \
-    INSTALL_RSP="files/db_inst.rsp" \
-    CONFIG_RSP="files/dbca.rsp.tmpl" \
-    PWD_FILE="files/setPassword.sh" \
-    RUN_FILE="files/runOracle.sh" \
-    START_FILE="files/startDB.sh" \
-    CREATE_DB_FILE="files/createDB.sh" \
-    SETUP_LINUX_FILE="files/setupLinuxEnv.sh" \
-    CHECK_SPACE_FILE="files/checkSpace.sh" \
-    CHECK_DB_FILE="files/checkDBStatus.sh" \
-    USER_SCRIPTS_FILE="files/runUserScripts.sh" \
-    INSTALL_DB_BINARIES_FILE="files/installDBBinaries.sh" \
-    STARTUP_SCRIPTS="startup/CreateTable.sql"
+    INSTALL_FILE_1="linuxx64_12201_database.zip" \
+    INSTALL_RSP="db_inst.rsp" \
+    CONFIG_RSP="dbca.rsp.tmpl" \
+    PWD_FILE="setPassword.sh" \
+    RUN_FILE="runOracle.sh" \
+    START_FILE="startDB.sh" \
+    CREATE_DB_FILE="createDB.sh" \
+    SETUP_LINUX_FILE="setupLinuxEnv.sh" \
+    CHECK_SPACE_FILE="checkSpace.sh" \
+    CHECK_DB_FILE="checkDBStatus.sh" \
+    USER_SCRIPTS_FILE="unUserScripts.sh" \
+    INSTALL_DB_BINARIES_FILE="installDBBinaries.sh"
 
 # Use second ENV so that variable get substituted
 ENV PATH=$ORACLE_HOME/bin:$ORACLE_HOME/OPatch/:/usr/sbin:$PATH \
@@ -72,7 +71,7 @@ RUN $ORACLE_BASE/oraInventory/orainstRoot.sh && \
 
 USER oracle
 
-COPY $STARTUP_SCRIPTS $ORACLE_BASE/scripts/startup/
+COPY startup $ORACLE_BASE/scripts/startup/
 
 WORKDIR /home/oracle
 
