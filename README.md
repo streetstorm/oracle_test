@@ -19,8 +19,14 @@
   `mkdir ~/oradata && chmod a+w ~/oradata`
 
 - Запускаем контейнер базы данных и ждём, когда статус контейнера будет `healthy`:
+  `make run_oracle`
 
-  `docker run --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$USER/oradata:/opt/oracle/oradata $USER_NAME/oracle18-xe`
+  либо:
+
+```shell
+  docker run --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$USER/oradata:/opt/oracle/oradata \
+  $USER_NAME/oracle18-xe`
+```
 
 - Заходим в контейнер oracle и делаем SELECT по первичному ключу в созданную таблицу:
 
