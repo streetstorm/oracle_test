@@ -6,7 +6,7 @@ all: oracle monitoring
 monitoring: prometheus grafana
 
 oracle:
-	docker build --force-rm=true --no-cache=true -t $(DOCKER_REGISTRY)/oracle18-xe ./oracle18-xe
+	docker build --force-rm=true --no-cache=true -t $(DOCKER_REGISTRY)/oracle18-xe ./oracle18xe
 
 prometheus:
 	docker build -t $(DOCKER_REGISTRY)/prometheus ./monitoring/prometheus
