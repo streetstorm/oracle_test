@@ -25,7 +25,7 @@
   либо:
 
 ```shell
-  docker run --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$USER/oradata:/opt/oracle/oradata \
+  docker run -d --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$USER/oradata:/opt/oracle/oradata \
   $USER_NAME/oracle18-xe`
 ```
 
@@ -38,6 +38,8 @@ SELECT * FROM ACCOUNTS WHERE ACCOUNT_NUMBER = 1;
 
 exit
 ```
+
+![alt tag](screen/select.png)​
 
 - Запускаем мониторинг:
 
