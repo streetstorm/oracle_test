@@ -19,6 +19,7 @@
   `mkdir ~/oradata && chmod a+w ~/oradata`
 
 - Запускаем контейнер базы данных и ждём, когда статус контейнера будет `healthy`:
+
   `make run_oracle`
 
   либо:
