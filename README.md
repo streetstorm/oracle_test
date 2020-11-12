@@ -3,18 +3,23 @@
 ## Инструкция запуска
 
 - Скачиваем репозиторий и заходим в директорию `oracle_test`:
+
   `git clone https://github.com/streetstorm/oracle_test.git && cd oracle_test`
 
 - Экспортируем переменную с вашим ником Dockerhub:
+
   `export USER_NAME=your_dockerhub_name`
 
 - Собираем все образы:
+
   `make build_all`
 
 - Создаем папку для volume базы данных:
+
   `mkdir ~/oradata && chmod a+w ~/oradata`
 
 - Запускаем контейнер базы данных и ждём, когда статус контейнера будет `healthy`:
+
   `docker run --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$USER/oradata:/opt/oracle/oradata $USER_NAME/oracle18-xe`
 
 - Заходим в контейнер oracle и делаем SELECT по первичному ключу в созданную таблицу:
@@ -28,6 +33,7 @@ exit
 ```
 
 - Запускаем мониторинг:
+
 `make run_monitoring`
 
   либо по очереди:
