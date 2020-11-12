@@ -15,7 +15,7 @@ grafana:
 	docker build -t $(DOCKER_REGISTRY)/grafana ./monitoring/grafana
 
 run_oracle:
-	docker run -d --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$USER/oradata:/opt/oracle/oradata $(DOCKER_REGISTRY)/oracle18-xe
+	docker run -d --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$(USER)/oradata:/opt/oracle/oradata $(DOCKER_REGISTRY)/oracle18-xe
 
 run_monitoring: run_exporter run_prometheus run_grafana
 

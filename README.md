@@ -26,7 +26,7 @@
 
 ```shell
   docker run -d --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$USER/oradata:/opt/oracle/oradata \
-  $USER_NAME/oracle18-xe`
+  $USER_NAME/oracle18-xe
 ```
 
 - Заходим в контейнер oracle и делаем SELECT по первичному ключу в созданную таблицу:
@@ -57,3 +57,5 @@ docker run -d -p 3000:3000 --name grafana --link=prometheus $USER_NAME/grafana
 ```
 
 - Открываем браузер, заходим в Grafana `http://localhost:3000`, логин и пароль по умолчанию(admin:admin). Data Source и Dashboard уже преднастроены, достаточно открыть dashboard: Oracledb.
+
+![alt tag](screen/grafana.png)​
