@@ -25,11 +25,11 @@
   либо:
 
 ```shell
-  docker run -d --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$USER/oradata:/opt/oracle/oradata \
-  $USER_NAME/oracle18-xe
+docker run -d --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$USER/oradata:/opt/oracle/oradata \
+$USER_NAME/oracle18-xe
 ```
 
-- Заходим в контейнер oracle и делаем SELECT по первичному ключу в созданную таблицу:
+- Заходим в контейнер oracle и делаем SELECT по первичному ключу в созданную таблицу(которую создал скрипт при запуске БД):
 
 ```shell
 docker exec -ti oracle sqlplus sys/oracle@//localhost:1521/XE as sysdba
@@ -56,6 +56,6 @@ docker run -d -p 9090:9090 --name prometheus --link=oracledb_exporter $USER_NAME
 docker run -d -p 3000:3000 --name grafana --link=prometheus $USER_NAME/grafana
 ```
 
-- Открываем браузер, заходим в Grafana `http://localhost:3000`, логин и пароль по умолчанию(admin:admin). Data Source и Dashboard уже преднастроены, достаточно открыть dashboard: Oracledb.
+- Открываем браузер, заходим в Grafana `http://localhost:3000`, логин и пароль по умолчанию(admin:admin). Data Source и Dashboard уже преднастроенны, достаточно открыть dashboard: Oracledb.
 
 ![alt tag](screen/grafana.png)​
