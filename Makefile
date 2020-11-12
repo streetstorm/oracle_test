@@ -1,7 +1,7 @@
 # Имя пользователя на докер-хабе
 DOCKER_REGISTRY = $(USER_NAME)
 
-all: reddit-micro prometheus-all fluentd
+all: oracle monitoring
 
 monitoring: prometheus grafana
 
