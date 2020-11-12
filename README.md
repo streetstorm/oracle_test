@@ -10,6 +10,8 @@
 
   `export USER_NAME=your_dockerhub_name`
 
+P.S.: для ускорения процесса можно использовать мой Dockerhub: `streetstorm` и сразу приступить к запуску: `make run_all` (директория ~/oradata должна отсутствовать). Минут через 10 oracle запустится, и можно будет приступать к SELECT и к проверке работы мониторинга.
+
 - Собираем все образы:
 
   `make build_all`
@@ -56,6 +58,6 @@ docker run -d -p 9090:9090 --name prometheus --link=oracledb_exporter $USER_NAME
 docker run -d -p 3000:3000 --name grafana --link=prometheus $USER_NAME/grafana
 ```
 
-- Открываем браузер, заходим в Grafana `http://localhost:3000`, логин и пароль по умолчанию(admin:admin). Data Source и Dashboard уже преднастроенны, достаточно открыть dashboard: Oracledb.
+- Открываем браузер, заходим в Grafana `http://localhost:3000`, логин и пароль по умолчанию(admin:admin). Data Source и Dashboard уже преднастроенны, достаточно перейти в раздел `Search` и открыть dashboard: Oracledb.
 
 ![alt tag](screen/grafana.png)​

@@ -5,6 +5,9 @@ build_all: oracle monitoring
 
 monitoring: prometheus grafana
 
+volume_dir:
+	mkdir /home/$(USER)/oradata && chmod a+w /home/$(USER)/oradata
+
 oracle:
 	docker build --force-rm=true --no-cache=true -t $(DOCKER_REGISTRY)/oracle18-xe ./oracle18xe
 
@@ -13,6 +16,8 @@ prometheus:
 
 grafana:
 	docker build -t $(DOCKER_REGISTRY)/grafana ./monitoring/grafana
+
+run_all: volume_dir run_oracle run_monitoring
 
 run_oracle:
 	docker run -d --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$(USER)/oradata:/opt/oracle/oradata $(DOCKER_REGISTRY)/oracle18-xe
@@ -28,4 +33,4 @@ run_prometheus:
 run_grafana:
 	docker run -d -p 3000:3000 --name grafana --link=prometheus $(DOCKER_REGISTRY)/grafana
 
-.PHONY: build_all monitoring oracle prometheus grafana run_oracle run_monitoring run_exporter run_prometheus run_grafana
+.PHONY: build_all monitoring oracle prometheus grafana run_all run_oracle run_monitoring run_exporter run_prometheus run_grafana
