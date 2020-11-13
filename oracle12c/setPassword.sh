@@ -1,7 +1,7 @@
 #!/bin/bash
 # LICENSE UPL 1.0
 #
-# Copyright (c) 1982-2018 Oracle and/or its affiliates. All rights reserved.
+# Copyright (c) 1982-2016 Oracle and/or its affiliates. All rights reserved.
 # 
 # Since: November, 2016
 # Author: gerald.venzl@oracle.com
@@ -16,10 +16,11 @@ ORACLE_PDB="`ls -dl $ORACLE_BASE/oradata/$ORACLE_SID/*/ | grep -v pdbseed | awk 
 ORAENV_ASK=NO
 source oraenv
 
-su -p oracle -c "sqlplus / as sysdba << EOF
+sqlplus / as sysdba << EOF
       ALTER USER SYS IDENTIFIED BY "$ORACLE_PWD";
       ALTER USER SYSTEM IDENTIFIED BY "$ORACLE_PWD";
       ALTER SESSION SET CONTAINER=$ORACLE_PDB;
       ALTER USER PDBADMIN IDENTIFIED BY "$ORACLE_PWD";
       exit;
-EOF"
+EOF
+

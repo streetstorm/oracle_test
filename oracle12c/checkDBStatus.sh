@@ -10,17 +10,15 @@
 #               1 = PDB is not open
 #               2 = Sql Plus execution failed
 # DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
-#
+# 
 
 ORACLE_SID="`grep $ORACLE_HOME /etc/oratab | cut -d: -f1`"
 OPEN_MODE="READ WRITE"
 ORAENV_ASK=NO
 source oraenv
 
-[ -f "$ORACLE_BASE/oradata/dbconfig/$ORACLE_SID/oratab" ] || exit 1;
-
 # Check Oracle at least one PDB has open_mode "READ WRITE" and store it in status
-status=`su -p oracle -c "sqlplus -s / as sysdba" << EOF
+status=`sqlplus -s / as sysdba << EOF
    set heading off;
    set pagesize 0;
    SELECT DISTINCT open_mode FROM v\\$pdbs WHERE open_mode = '$OPEN_MODE';
