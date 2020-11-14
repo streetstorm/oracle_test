@@ -48,7 +48,7 @@ exit
 
 ```shell
 # Экспортер (make run_exporter)
-docker run -d --name oracledb_exporter --link=oracle -p 9161:9161 -e DATA_SOURCE_NAME=system/oracle@oracle/ORCLCDB iamseth/oracledb_exporter:alpine
+docker run -d --name oracledb_exporter --link=oracle -p 9161:9161 -e DATA_SOURCE_NAME=system/oracle@oracle/ORCLCDB oracledb_exporter
 # Prometheus (make run_prometheus)
 docker run -d -p 9090:9090 --name prometheus --link=oracledb_exporter prometheus
 # Grafana (make run_grafana)
