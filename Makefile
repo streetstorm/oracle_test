@@ -1,7 +1,7 @@
 # Имя пользователя на докер-хабе
 build_all: oracle monitoring
 
-monitoring: prometheus grafana
+monitoring: exporter prometheus grafana
 
 volume_dir:
 	mkdir /home/$(USER)/oradata && chmod a+w /home/$(USER)/oradata
