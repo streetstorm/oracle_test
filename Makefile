@@ -10,7 +10,7 @@ oracle:
 	docker build --force-rm=true --no-cache=true --build-arg DB_EDITION=ee -t oracle12 ./oracle12c
 
 exporter:
-    docker build -t oracledb_exporter ./monitoring/oracledb_exporter
+    docker build --build-arg VERSION=0.3.0 --build-arg ORACLE_VERSION=18.5 -t oracledb_exporter ./monitoring/oracledb_exporter
 
 prometheus:
 	docker build -t prometheus ./monitoring/prometheus
@@ -26,7 +26,7 @@ run_oracle:
 run_monitoring: run_exporter run_prometheus run_grafana
 
 run_exporter:
-	docker run -d --name oracledb_exporter --link=oracle -p 9161:9161 -e DATA_SOURCE_NAME=system/oracle@oracle/ORCLCDB iamseth/oracledb_exporter:alpine
+	docker run -d --name oracledb_exporter --link=oracle -p 9161:9161 -e DATA_SOURCE_NAME=system/oracle@oracle/ORCLCDB oracledb_exporter
 
 run_prometheus:
 	docker run -d -p 9090:9090 --name prometheus --link=oracledb_exporter prometheus
