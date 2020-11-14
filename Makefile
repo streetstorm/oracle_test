@@ -10,7 +10,7 @@ oracle:
 	docker build --force-rm=true --no-cache=true --build-arg DB_EDITION=ee -t oracle12 ./oracle12c
 
 exporter:
-    docker build --build-arg VERSION=0.3.0 --build-arg ORACLE_VERSION=18.5 -t oracledb_exporter ./monitoring/oracledb_exporter
+	docker build --build-arg VERSION=0.3.0 --build-arg ORACLE_VERSION=18.5 -t oracledb_exporter ./monitoring/oracledb_exporter
 
 prometheus:
 	docker build -t prometheus ./monitoring/prometheus
