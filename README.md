@@ -25,7 +25,7 @@
   либо:
 
 ```shell
-docker run -d --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$(USER)/oradata:/opt/oracle/oradata oracle12
+docker run -d --name oracle -p 1521:1521 -e ORACLE_PWD=oracle -v /home/$USER/oradata:/opt/oracle/oradata oracle12
 ```
 
 - Заходим в контейнер oracle и делаем SELECT по первичному ключу в созданную таблицу(которую создал скрипт при запуске БД):
