@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": 3333,
   "graphTooltip": 1,
-  "iteration": 1605343503779,
+  "iteration": 1605350227144,
   "links": [
     {
       "asDropdown": true,
@@ -217,7 +217,7 @@
           "calculatedInterval": "10m",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "oracledb_sessions_value{instance=\"oracledb_exporter:9161\",job=\"oracle\",status=\"ACTIVE\",type=\"BACKGROUND\"}",
+          "expr": "oracledb_sessions_value{instance=\"$host\",job=\"oracle\",status=\"ACTIVE\",type=\"BACKGROUND\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1290,7 +1290,7 @@
       }
     }
   ],
-  "refresh": false,
+  "refresh": "5s",
   "schemaVersion": 26,
   "style": "dark",
   "tags": [
@@ -1396,8 +1396,8 @@
     ]
   },
   "time": {
-    "from": "2020-11-14T07:30:26.520Z",
-    "to": "2020-11-14T09:30:26.520Z"
+    "from": "now-5m",
+    "to": "now"
   },
   "timepicker": {
     "collapse": false,
