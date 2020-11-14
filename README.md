@@ -57,4 +57,4 @@ docker run -d -p 3000:3000 --name grafana --link=prometheus grafana
 
 - Открываем браузер, заходим в Grafana `http://localhost:3000`, логин и пароль по умолчанию(admin:admin). Data Source и Dashboard уже преднастроенны, достаточно перейти в раздел `Search` и открыть dashboard: Oracledb.
 
-![alt tag](screen/grafana.png)​
+![alt tag](screen/grafana2.png)​
