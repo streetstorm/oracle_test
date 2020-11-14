@@ -16,7 +16,7 @@
   "editable": true,
   "gnetId": 3333,
   "graphTooltip": 1,
-  "iteration": 1605168205792,
+  "iteration": 1605350227144,
   "links": [
     {
       "asDropdown": true,
@@ -217,7 +217,7 @@
           "calculatedInterval": "10m",
           "datasourceErrors": {},
           "errors": {},
-          "expr": "oracledb_sessions_active{instance=\"$host\"}",
+          "expr": "oracledb_sessions_value{instance=\"$host\",job=\"oracle\",status=\"ACTIVE\",type=\"BACKGROUND\"}",
           "format": "time_series",
           "interval": "$interval",
           "intervalFactor": 1,
@@ -1089,6 +1089,7 @@
         "overrides": []
       },
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1096,6 +1097,7 @@
         "x": 0,
         "y": 28
       },
+      "hiddenSeries": false,
       "id": 59,
       "legend": {
         "alignAsTable": false,
@@ -1112,6 +1114,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
       "pluginVersion": "7.3.1",
       "pointradius": 5,
@@ -1138,6 +1143,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "wait time application",
       "tooltip": {
@@ -1169,7 +1175,11 @@
           "min": 0,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
       "aliasColors": {},
@@ -1187,6 +1197,7 @@
         "overrides": []
       },
       "fill": 2,
+      "fillGradient": 0,
       "grid": {},
       "gridPos": {
         "h": 7,
@@ -1194,6 +1205,7 @@
         "x": 12,
         "y": 28
       },
+      "hiddenSeries": false,
       "id": 60,
       "legend": {
         "alignAsTable": false,
@@ -1210,6 +1222,9 @@
       "linewidth": 2,
       "links": [],
       "nullPointMode": "null",
+      "options": {
+        "alertThreshold": true
+      },
       "percentage": false,
       "pluginVersion": "7.3.1",
       "pointradius": 5,
@@ -1236,6 +1251,7 @@
       ],
       "thresholds": [],
       "timeFrom": null,
+      "timeRegions": [],
       "timeShift": null,
       "title": "wait time network",
       "tooltip": {
@@ -1267,7 +1283,11 @@
           "min": 0,
           "show": true
         }
-      ]
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
   "refresh": "5s",
@@ -1376,7 +1396,7 @@
     ]
   },
   "time": {
-    "from": "now-30m",
+    "from": "now-5m",
     "to": "now"
   },
   "timepicker": {

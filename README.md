@@ -48,7 +48,7 @@ exit
 
 ```shell
 # Экспортер (make run_exporter)
-docker run -d --name oracledb_exporter --link=oracle -p 9161:9161 -e DATA_SOURCE_NAME=system/oracle@oracle/ORCLCDB iamseth/oracledb_exporter:alpine
+docker run -d --name oracledb_exporter --link=oracle -p 9161:9161 -e DATA_SOURCE_NAME=system/oracle@oracle/ORCLCDB oracledb_exporter
 # Prometheus (make run_prometheus)
 docker run -d -p 9090:9090 --name prometheus --link=oracledb_exporter prometheus
 # Grafana (make run_grafana)
@@ -57,4 +57,4 @@ docker run -d -p 3000:3000 --name grafana --link=prometheus grafana
 
 - Открываем браузер, заходим в Grafana `http://localhost:3000`, логин и пароль по умолчанию(admin:admin). Data Source и Dashboard уже преднастроенны, достаточно перейти в раздел `Search` и открыть dashboard: Oracledb.
 
-![alt tag](screen/grafana.png)​
+![alt tag](screen/grafana2.png)​
